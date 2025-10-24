@@ -1,5 +1,49 @@
-[gd_scene format=3 uid="uid://ci01t4y7841nj"]
+[gd_scene load_steps=7 format=3 uid="uid://ci01t4y7841nj"]
+
+[ext_resource type="Script" uid="uid://dp10ublv68ard" path="res://Camera.gd" id="1_4qeqg"]
+[ext_resource type="Texture2D" uid="uid://chijj3lkgctan" path="res://Art/BaseballBG.png" id="2_3gybg"]
+[ext_resource type="Script" uid="uid://cy1hqn05suj1t" path="res://Player.gd" id="3_77iun"]
+[ext_resource type="Texture2D" uid="uid://dsyyt22ddvvgx" path="res://icon.svg" id="4_ijqok"]
+[ext_resource type="Texture2D" uid="uid://crk1opa2sn72e" path="res://Art/TempGround.png" id="5_cbn5i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77iun"]
 
 [node name="WorldScene" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow")]
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("1_4qeqg")
+follow = NodePath("../Player")
+
 [node name="Background" type="Node2D" parent="."]
+
+[node name="Background" type="Parallax2D" parent="Background"]
+repeat_size = Vector2(512, 0)
+repeat_times = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Background"]
+texture = ExtResource("2_3gybg")
+
+[node name="Background2" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.5, 1)
+scroll_offset = Vector2(0, 256)
+repeat_size = Vector2(512, 0)
+repeat_times = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Background2"]
+modulate = Color(0.20878002, 0.73, 0.116800025, 1)
+texture = ExtResource("2_3gybg")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("3_77iun")
+speed = 30000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_77iun")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("4_ijqok")
+
+[node name="TempGround" type="Sprite2D" parent="."]
+position = Vector2(-2, 229)
+texture = ExtResource("5_cbn5i")
