@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ci01t4y7841nj"]
+[gd_scene load_steps=9 format=3 uid="uid://ci01t4y7841nj"]
 
 [ext_resource type="Script" uid="uid://dp10ublv68ard" path="res://Camera.gd" id="1_4qeqg"]
 [ext_resource type="Texture2D" uid="uid://chijj3lkgctan" path="res://Art/BaseballBG.png" id="2_3gybg"]
 [ext_resource type="Script" uid="uid://cy1hqn05suj1t" path="res://Player.gd" id="3_77iun"]
-[ext_resource type="Texture2D" uid="uid://dsyyt22ddvvgx" path="res://icon.svg" id="4_ijqok"]
+[ext_resource type="Texture2D" uid="uid://bg60h45j7fn4v" path="res://textures/leafBase.png" id="4_3gybg"]
+[ext_resource type="Script" uid="uid://c86o0gbxrq5ki" path="res://collision.gd" id="5_3gybg"]
 [ext_resource type="Texture2D" uid="uid://crk1opa2sn72e" path="res://Art/TempGround.png" id="5_cbn5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77iun"]
@@ -45,10 +46,11 @@ gravity = 50000.0
 jump_power = 30000.0
 
 [node name="Visual" type="Sprite2D" parent="Player"]
-texture = ExtResource("4_ijqok")
+texture = ExtResource("4_3gybg")
 
 [node name="Collision" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_77iun")
+script = ExtResource("5_3gybg")
 
 [node name="Raycast" type="RayCast2D" parent="Player"]
 target_position = Vector2(0, 64)
