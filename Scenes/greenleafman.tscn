@@ -1,28 +1,48 @@
 [gd_scene load_steps=6 format=3 uid="uid://uudabjptccdp"]
 
-[ext_resource type="Script" uid="uid://cy1hqn05suj1t" path="res://Player.gd" id="1_4pm1r"]
-[ext_resource type="Texture2D" path="res://Assets/PlayerAssetPNG/leafBase.png" id="1_v7a7j"]
-[ext_resource type="Texture2D" path="res://Assets/PlayerAssetPNG/mainLeaf.png" id="2_pu2o5"]
-[ext_resource type="Script" uid="uid://c4uee253cgwj3" path="res://Scenes/genCollision.gd" id="4_fxvx0"]
+[ext_resource type="Script" uid="uid://cy1hqn05suj1t" path="res://Player.gd" id="1_r4oai"]
+[ext_resource type="Texture2D" uid="uid://bg60h45j7fn4v" path="res://Assets/PlayerAssetPNG/leafBase.png" id="1_v7a7j"]
+[ext_resource type="Texture2D" uid="uid://c56fu14aakfyr" path="res://Assets/PlayerAssetPNG/mainLeaf.png" id="2_pu2o5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pu2o5"]
-radius = 71.0
-height = 318.0
+radius = 78.0
+height = 308.0
 
-[node name="LeafGuy" type="CharacterBody2D"]
-script = ExtResource("1_4pm1r")
+[sub_resource type="GDScript" id="GDScript_fxvx0"]
+script/source = "extends CollisionShape2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group(\"Obstacles\"):
+		print(\"blocked\")
+	if area.is_in_group(\"Interactables\"):
+		print(\"collected\")
+"
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_r4oai")
 metadata/_custom_type_script = "uid://cy1hqn05suj1t"
 
-[node name="MainLeaf" type="Sprite2D" parent="." groups=["Player"]]
-position = Vector2(82, -337)
+[node name="MainLeaf" type="Sprite2D" parent="."]
+position = Vector2(78, -329)
 texture = ExtResource("2_pu2o5")
 
-[node name="LeafGuySprite" type="Sprite2D" parent="."]
+[node name="LeafGuy" type="Sprite2D" parent="." groups=["Player"]]
 texture = ExtResource("1_v7a7j")
 
-[node name="Area2D" type="Area2D" parent="LeafGuySprite" groups=["Player"]]
+[node name="Area2D" type="Area2D" parent="LeafGuy" groups=["Player"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeafGuySprite/Area2D"]
-position = Vector2(-14, -10)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeafGuy/Area2D" groups=["Player"]]
+position = Vector2(-16, -13)
 shape = SubResource("CapsuleShape2D_pu2o5")
-script = ExtResource("4_fxvx0")
+script = SubResource("GDScript_fxvx0")
+
+[connection signal="area_entered" from="LeafGuy/Area2D" to="." method="_on_area_2d_area_entered"]

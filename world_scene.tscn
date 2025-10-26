@@ -1,28 +1,66 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci01t4y7841nj"]
+[gd_scene load_steps=9 format=3 uid="uid://ci01t4y7841nj"]
 
-[ext_resource type="Texture2D" path="res://Assets/PlayerAssetPNG/mainLeaf.png" id="2_ijqok"]
+[ext_resource type="Script" uid="uid://dp10ublv68ard" path="res://Camera.gd" id="1_4qeqg"]
+[ext_resource type="Texture2D" uid="uid://chijj3lkgctan" path="res://Art/BaseballBG.png" id="2_3gybg"]
 [ext_resource type="Script" uid="uid://cy1hqn05suj1t" path="res://Player.gd" id="3_77iun"]
-[ext_resource type="Texture2D" path="res://Assets/PlayerAssetPNG/leafBase.png" id="4_3gybg"]
-[ext_resource type="Script" uid="uid://c4uee253cgwj3" path="res://Scenes/genCollision.gd" id="4_cbn5i"]
+[ext_resource type="Texture2D" uid="uid://bg60h45j7fn4v" path="res://Assets/PlayerAssetPNG/leafBase.png" id="4_3gybg"]
+[ext_resource type="Script" uid="uid://c86o0gbxrq5ki" path="res://collision.gd" id="5_3gybg"]
+[ext_resource type="Texture2D" uid="uid://crk1opa2sn72e" path="res://Art/TempGround.png" id="5_cbn5i"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pu2o5"]
-radius = 71.0
-height = 318.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77iun"]
+size = Vector2(120, 120)
 
-[node name="LeafGuy" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbn5i"]
+size = Vector2(575, 225)
+
+[node name="WorldScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow")]
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("1_4qeqg")
+follow = NodePath("../Player")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Background" type="Parallax2D" parent="Background"]
+repeat_size = Vector2(512, 0)
+repeat_times = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Background"]
+texture = ExtResource("2_3gybg")
+
+[node name="Background2" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.5, 1)
+scroll_offset = Vector2(0, 256)
+repeat_size = Vector2(512, 0)
+repeat_times = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Background2"]
+modulate = Color(0.20878002, 0.73, 0.116800025, 1)
+texture = ExtResource("2_3gybg")
+
+[node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("3_77iun")
-metadata/_custom_type_script = "uid://cy1hqn05suj1t"
+speed = 30000.0
+gravity = 50000.0
+jump_power = 30000.0
 
-[node name="MainLeaf" type="Sprite2D" parent="." groups=["Player"]]
-position = Vector2(82, -337)
-texture = ExtResource("2_ijqok")
-
-[node name="LeafGuySprite" type="Sprite2D" parent="."]
+[node name="Visual" type="Sprite2D" parent="Player"]
 texture = ExtResource("4_3gybg")
 
-[node name="Area2D" type="Area2D" parent="LeafGuySprite" groups=["Player"]]
+[node name="Collision" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_77iun")
+script = ExtResource("5_3gybg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeafGuySprite/Area2D"]
-position = Vector2(-14, -10)
-shape = SubResource("CapsuleShape2D_pu2o5")
-script = ExtResource("4_cbn5i")
+[node name="Raycast" type="RayCast2D" parent="Player"]
+target_position = Vector2(0, 64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(3, 277)
+
+[node name="TempGround" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("5_cbn5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, -15.5)
+shape = SubResource("RectangleShape2D_cbn5i")
