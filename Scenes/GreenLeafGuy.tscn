@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dj2npcuwspidp"]
+[gd_scene load_steps=10 format=3 uid="uid://dj2npcuwspidp"]
 
 [ext_resource type="Script" uid="uid://buipvihk4tfdj" path="res://Scenes/LittleGuy.gd" id="1_ehwa6"]
 [ext_resource type="Texture2D" uid="uid://bg60h45j7fn4v" path="res://Assets/PlayerAssetPNG/leafBase.png" id="2_00pby"]
 [ext_resource type="Texture2D" uid="uid://bl80begsvsois" path="res://Assets/PlayerAssetPNG/leafBack.png" id="3_trexd"]
 [ext_resource type="Texture2D" uid="uid://depp66tuevqsj" path="res://Assets/PlayerAssetPNG/leafForward.png" id="4_g032p"]
+[ext_resource type="AudioStream" uid="uid://cjylsah5kpyux" path="res://Audio/lil guy talking.mp3" id="5_g032p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1sbn"]
 radius = 78.0
@@ -62,4 +63,8 @@ libraries = {
 }
 autoplay = "idle"
 
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_g032p")
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
