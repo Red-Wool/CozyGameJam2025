@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://chijj3lkgctan" path="res://Art/BaseballBG.png" id="2_3gybg"]
 [ext_resource type="Script" uid="uid://cy1hqn05suj1t" path="res://Player.gd" id="3_77iun"]
 [ext_resource type="Texture2D" uid="uid://bg60h45j7fn4v" path="res://Assets/PlayerAssetPNG/leafBase.png" id="4_3gybg"]
-[ext_resource type="Script" uid="uid://c86o0gbxrq5ki" path="res://collision.gd" id="5_3gybg"]
+[ext_resource type="Script" path="res://collision.gd" id="5_3gybg"]
 [ext_resource type="Texture2D" uid="uid://crk1opa2sn72e" path="res://Art/TempGround.png" id="5_cbn5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77iun"]
