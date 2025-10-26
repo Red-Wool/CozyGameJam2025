@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://uudabjptccdp"]
+
+[ext_resource type="Script" uid="uid://cy1hqn05suj1t" path="res://Player.gd" id="1_4pm1r"]
+[ext_resource type="Texture2D" uid="uid://bg60h45j7fn4v" path="res://Assets/PlayerAssetPNG/leafBase.png" id="1_v7a7j"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_4pm1r")
+metadata/_custom_type_script = "uid://cy1hqn05suj1t"
+
+[node name="LeafGuy" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_v7a7j")
