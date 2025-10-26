@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dp4rdx48s0wno"
+path="res://.godot/imported/mushroom boing.mp3-e53f9f8eb3643bf71aecd8f69b119ad6.mp3str"
+
+[deps]
+
+source_file="res://Audio/mushroom boing.mp3"
+dest_files=["res://.godot/imported/mushroom boing.mp3-e53f9f8eb3643bf71aecd8f69b119ad6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

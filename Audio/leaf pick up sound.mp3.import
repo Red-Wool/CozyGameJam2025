@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bshtusfeewok8"
+path="res://.godot/imported/leaf pick up sound.mp3-69a59ec214f8564823bf6760f84a7f72.mp3str"
+
+[deps]
+
+source_file="res://Audio/leaf pick up sound.mp3"
+dest_files=["res://.godot/imported/leaf pick up sound.mp3-69a59ec214f8564823bf6760f84a7f72.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
