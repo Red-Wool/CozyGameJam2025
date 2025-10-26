@@ -5,11 +5,13 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_erywe"]
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="RigidBody2D" type="StaticBody2D"]
+position = Vector2(1056, 310)
 script = ExtResource("1_erywe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(-0.21923451, 0.20372061)
+rotation = -3.1415927
+scale = Vector2(0.21923451, -0.20372061)
 texture = ExtResource("1_pjgfi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
