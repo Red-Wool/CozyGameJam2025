@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3aj8oboumuaf"]
+
+[ext_resource type="Script" uid="uid://7j5jvcaerwok" path="res://WindLine.gd" id="1_rc2hr"]
+[ext_resource type="PackedScene" uid="uid://bv8pdga4cjjx6" path="res://Prefab/wind_zone.tscn" id="2_rc2hr"]
+
+[sub_resource type="Curve" id="Curve_ys3nf"]
+_data = [Vector2(0, 0.9487292), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.029411793), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="WindSceneTest" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="WindLine" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(10, -100, 0, 0, 0, 100)
+width_curve = SubResource("Curve_ys3nf")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("1_rc2hr")
+
+[node name="WindZone" parent="." instance=ExtResource("2_rc2hr")]
