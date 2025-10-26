@@ -1,3 +1,28 @@
-[gd_scene format=3 uid="uid://c8ofvfnw6s5li"]
+[gd_scene load_steps=6 format=3 uid="uid://b3wceb01ch58d"]
 
-[node name="GravityTest" type="Node2D"]
+[ext_resource type="Script" uid="uid://cy1hqn05suj1t" path="res://Player.gd" id="1_ohura"]
+[ext_resource type="Texture2D" path="res://Assets/PlayerAssetPNG/mainLeaf.png" id="2_r17kd"]
+[ext_resource type="Texture2D" path="res://Assets/PlayerAssetPNG/leafBase.png" id="3_0acop"]
+[ext_resource type="Script" uid="uid://c4uee253cgwj3" path="res://Scenes/genCollision.gd" id="4_cisxy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pu2o5"]
+radius = 71.0
+height = 318.0
+
+[node name="LeafGuy" type="CharacterBody2D"]
+script = ExtResource("1_ohura")
+metadata/_custom_type_script = "uid://cy1hqn05suj1t"
+
+[node name="MainLeaf" type="Sprite2D" parent="." groups=["Player"]]
+position = Vector2(82, -337)
+texture = ExtResource("2_r17kd")
+
+[node name="LeafGuySprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_0acop")
+
+[node name="Area2D" type="Area2D" parent="LeafGuySprite" groups=["Player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeafGuySprite/Area2D"]
+position = Vector2(-14, -10)
+shape = SubResource("CapsuleShape2D_pu2o5")
+script = ExtResource("4_cisxy")
