@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmuovyrk6r7wv"]
+
+[ext_resource type="Texture2D" uid="uid://dsyyt22ddvvgx" path="res://icon.svg" id="1_uebgo"]
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(0, -190)
+texture = ExtResource("1_uebgo")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_vertical = 0
