@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq618fwgn6q83"]
+
+[ext_resource type="Script" uid="uid://svvdtjmrajig" path="res://waterdrop.gd" id="1_a4h10"]
+[ext_resource type="Texture2D" uid="uid://de2n5ij2ax6rl" path="res://Assets/ObstaclesPNG/water_droplet.png" id="1_w1gm7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a4h10"]
+radius = 25.86206
+height = 52.68805
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(530, 325)
+script = ExtResource("1_a4h10")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.19265668, 0.20211163)
+texture = ExtResource("1_w1gm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 10)
+scale = Vector2(1.1509149, 1.2296759)
+shape = SubResource("CapsuleShape2D_a4h10")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1, -24)
+scale = Vector2(0.4952261, 0.39887285)
+shape = SubResource("CapsuleShape2D_a4h10")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(7.999998, -36)
+scale = Vector2(0.23300712, 0.23937115)
+shape = SubResource("CapsuleShape2D_a4h10")

@@ -23,6 +23,7 @@ follow = NodePath("../Player")
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Background" type="Parallax2D" parent="Background"]
+scroll_offset = Vector2(0, -374)
 repeat_size = Vector2(512, 0)
 repeat_times = 8
 

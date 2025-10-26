@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://m3dfguyfxuw8"]
+
+[ext_resource type="Script" uid="uid://ckpjiogs0f8t8" path="res://acorn.gd" id="1_erywe"]
+[ext_resource type="Texture2D" uid="uid://dpehs4gfnve1x" path="res://Assets/ObstaclesPNG/acorn.png" id="1_pjgfi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_erywe"]
+
+[node name="RigidBody2D" type="StaticBody2D"]
+position = Vector2(1056, 310)
+script = ExtResource("1_erywe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -3.1415927
+scale = Vector2(0.21923451, -0.20372061)
+texture = ExtResource("1_pjgfi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.9999995, 4.9999995)
+scale = Vector2(3.7921338, 2.8680575)
+shape = SubResource("CapsuleShape2D_erywe")
