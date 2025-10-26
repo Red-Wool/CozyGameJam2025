@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu1aor6u7gltq"
-path="res://.godot/imported/wide_leaf.png-4d83c82b1ae376550e4fa315e187b754.ctex"
+uid="uid://wqxtvg3gwv4m"
+path="res://.godot/imported/mushroom_sleep.png-7bc87aaa6e4c15d6a8482b9b5a69dd40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PowerUps/wide_leaf.png"
-dest_files=["res://.godot/imported/wide_leaf.png-4d83c82b1ae376550e4fa315e187b754.ctex"]
+source_file="res://Assets/PowerUps/mushroom_sleep.png"
+dest_files=["res://.godot/imported/mushroom_sleep.png-7bc87aaa6e4c15d6a8482b9b5a69dd40.ctex"]
 
 [params]
 

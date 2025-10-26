@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wqxtvg3gwv4m"
-path="res://.godot/imported/mushroom_sleep.png-343b7701ee180e76bd5e88f659b277d5.ctex"
+uid="uid://bu1aor6u7gltq"
+path="res://.godot/imported/wide_leaf.png-e5dab1e61a9c8b6d5541feb3435b6a59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ObstaclesPNG/mushroom_sleep.png"
-dest_files=["res://.godot/imported/mushroom_sleep.png-343b7701ee180e76bd5e88f659b277d5.ctex"]
+source_file="res://Assets/Collectable/wide_leaf.png"
+dest_files=["res://.godot/imported/wide_leaf.png-e5dab1e61a9c8b6d5541feb3435b6a59.ctex"]
 
 [params]
 
