@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://uudabjptccdp"]
 
-[ext_resource type="Texture2D" uid="uid://bg60h45j7fn4v" path="res://textures/leafBase.png" id="1_v7a7j"]
+[ext_resource type="Texture2D" uid="uid://bg60h45j7fn4v" path="res://Assets/PlayerAssetPNG/leafBase.png" id="1_v7a7j"]
 
 [node name="RigidBody2D" type="RigidBody2D"]
 
