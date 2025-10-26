@@ -1,23 +1,35 @@
-[gd_scene load_steps=10 format=3 uid="uid://ci01t4y7841nj"]
+[gd_scene load_steps=17 format=3 uid="uid://ci01t4y7841nj"]
 
 [ext_resource type="Script" uid="uid://dp10ublv68ard" path="res://Camera.gd" id="1_4qeqg"]
 [ext_resource type="Texture2D" uid="uid://oru7j7dnb3ip" path="res://Assets/UI/fallbg.png" id="2_ua7ix"]
 [ext_resource type="Script" uid="uid://cy1hqn05suj1t" path="res://Player.gd" id="3_77iun"]
 [ext_resource type="Texture2D" uid="uid://cggx4tm02qoir" path="res://Assets/tree_branch_clear.PNG" id="3_ua7ix"]
 [ext_resource type="Texture2D" uid="uid://bg60h45j7fn4v" path="res://Assets/PlayerAssetPNG/leafBase.png" id="4_3gybg"]
-[ext_resource type="Script" path="res://collision.gd" id="5_3gybg"]
+[ext_resource type="Script" uid="uid://c86o0gbxrq5ki" path="res://collision.gd" id="5_3gybg"]
 [ext_resource type="Texture2D" uid="uid://crk1opa2sn72e" path="res://Art/TempGround.png" id="5_cbn5i"]
+[ext_resource type="Texture2D" uid="uid://cg357ug1rkpob" path="res://Assets/Environ/leaf_pile.png" id="8_pcaem"]
+[ext_resource type="PackedScene" uid="uid://m3dfguyfxuw8" path="res://acorn.tscn" id="9_pie87"]
+[ext_resource type="PackedScene" uid="uid://dq618fwgn6q83" path="res://waterdrop.tscn" id="10_ae7iy"]
+[ext_resource type="Texture2D" uid="uid://iilrchxgk066" path="res://Assets/Environ/stump.png" id="11_oxbnj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_77iun"]
-size = Vector2(120, 120)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ua7ix"]
+radius = 14.197532
+height = 32.71605
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbn5i"]
-size = Vector2(575, 225)
+size = Vector2(566, 228)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pie87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p81jl"]
+size = Vector2(415, 274)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns082"]
 
 [node name="WorldScene" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow")]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.3, 0.3)
 script = ExtResource("1_4qeqg")
 follow = NodePath("../Player")
 
@@ -42,27 +54,103 @@ scale = Vector2(4, 4)
 texture = ExtResource("3_ua7ix")
 
 [node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(-86, -119)
 script = ExtResource("3_77iun")
 speed = 30000.0
 gravity = 50000.0
 jump_power = 30000.0
 
 [node name="Visual" type="Sprite2D" parent="Player"]
+position = Vector2(14, 24.750011)
+scale = Vector2(0.78347397, 0.84685874)
 texture = ExtResource("4_3gybg")
 
 [node name="Collision" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_77iun")
+position = Vector2(6.000001, 10)
+scale = Vector2(3.724195, 9.719999)
+shape = SubResource("CapsuleShape2D_ua7ix")
 script = ExtResource("5_3gybg")
 
 [node name="Raycast" type="RayCast2D" parent="Player"]
-target_position = Vector2(0, 64)
+position = Vector2(0, -10)
+target_position = Vector2(0, 200)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(3, 277)
+position = Vector2(-300, 191)
 
 [node name="TempGround" type="Sprite2D" parent="StaticBody2D"]
+modulate = Color(0.32232824, 0.19190618, 0.10158396, 1)
 texture = ExtResource("5_cbn5i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0.5, -15.5)
+position = Vector2(-2, -17)
 shape = SubResource("RectangleShape2D_cbn5i")
+
+[node name="Leaf Pile" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Leaf Pile"]
+position = Vector2(7897, 1127)
+texture = ExtResource("8_pcaem")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaf Pile"]
+position = Vector2(7890.0005, 1136)
+scale = Vector2(11.532221, -13.100051)
+shape = SubResource("CircleShape2D_pie87")
+
+[node name="RigidBody2D" parent="." instance=ExtResource("9_pie87")]
+position = Vector2(3619, -749)
+scale = Vector2(2.0919352, 2.1670074)
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("9_pie87")]
+position = Vector2(4856, 285)
+scale = Vector2(2.0919352, 2.1670074)
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("9_pie87")]
+position = Vector2(9911, -448.00003)
+scale = Vector2(2.0919352, 2.1670074)
+
+[node name="RigidBody2D4" parent="." instance=ExtResource("9_pie87")]
+position = Vector2(13338.001, 790)
+scale = Vector2(2.0919352, 2.1670074)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("10_ae7iy")]
+position = Vector2(1462.0002, -1695)
+scale = Vector2(1.6741952, 2.0846348)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("10_ae7iy")]
+position = Vector2(4614, -1459)
+scale = Vector2(1.6741952, 2.0846348)
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("10_ae7iy")]
+position = Vector2(7618, -1271.9999)
+scale = Vector2(1.6741952, 2.0846348)
+
+[node name="StaticBody2D5" parent="." instance=ExtResource("10_ae7iy")]
+position = Vector2(11056, -1272)
+scale = Vector2(1.6741952, 2.0846348)
+
+[node name="StaticBody2D6" parent="." instance=ExtResource("10_ae7iy")]
+position = Vector2(12819.001, -1223)
+scale = Vector2(1.6741952, 2.0846348)
+
+[node name="stump" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="stump"]
+position = Vector2(2033, 1088)
+texture = ExtResource("11_oxbnj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stump"]
+position = Vector2(2024, 1110)
+shape = SubResource("RectangleShape2D_p81jl")
+
+[node name="stump2" type="StaticBody2D" parent="."]
+position = Vector2(8997, 32)
+
+[node name="Sprite2D" type="Sprite2D" parent="stump2"]
+position = Vector2(2033, 1088)
+texture = ExtResource("11_oxbnj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stump2"]
+position = Vector2(2028, 1159)
+scale = Vector2(19.51995, 18.444454)
+shape = SubResource("RectangleShape2D_ns082")
