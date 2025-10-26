@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmuovyrk6r7wv"]
+[gd_scene load_steps=8 format=3 uid="uid://bmuovyrk6r7wv"]
 
 [ext_resource type="Texture2D" uid="uid://dw78nxspru3ip" path="res://Assets/UI/leaf_logo.png" id="1_8l4an"]
+[ext_resource type="Script" uid="uid://bxybscovo1iy8" path="res://SimpleWobble.gd" id="2_7whhf"]
 [ext_resource type="Texture2D" uid="uid://ds6gt6a10cuym" path="res://Assets/UI/playbutton.png" id="2_8l4an"]
+[ext_resource type="Script" uid="uid://d0gyogqldh6xs" path="res://Scenes/TitleScreen.gd" id="2_emot1"]
 [ext_resource type="Texture2D" uid="uid://d4e1ghviwfhju" path="res://Assets/UI/leaf title.png" id="2_vmg2h"]
 [ext_resource type="Texture2D" uid="uid://c7h3gdeca8jse" path="res://Assets/UI/quitbutton.png" id="3_n15yj"]
+[ext_resource type="AudioStream" uid="uid://brwshlgvhija1" path="res://Audio/royalty free cozy bg music.mp3" id="6_i5sur"]
 
 [node name="TitleScreen" type="Node2D"]
 
@@ -12,6 +15,8 @@
 [node name="Title" type="Sprite2D" parent="."]
 position = Vector2(226, -78)
 texture = ExtResource("1_8l4an")
+script = ExtResource("2_7whhf")
+pos = -78.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -23,6 +28,7 @@ offset_top = -324.0
 offset_right = 576.0
 offset_bottom = 324.0
 grow_vertical = 0
+script = ExtResource("2_emot1")
 
 [node name="PlayButton" type="Button" parent="Control"]
 layout_mode = 1
@@ -60,5 +66,14 @@ expand_icon = true
 
 [node name="BG" type="Sprite2D" parent="."]
 z_index = -100
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.65, 0.65)
 texture = ExtResource("2_vmg2h")
+script = ExtResource("2_7whhf")
+power = 5.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_i5sur")
+autoplay = true
+
+[connection signal="pressed" from="Control/PlayButton" to="Control" method="_on_play_button_pressed"]
+[connection signal="button_down" from="Control/QuitButton" to="Control" method="_on_quit_button_button_down"]

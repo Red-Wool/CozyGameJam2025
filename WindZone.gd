@@ -15,3 +15,8 @@ class_name WindZone extends Area2D
 			collision.shape.size = value
 			visual.texture.width = value.x
 			visual.texture.height = value.y
+
+func _ready():
+	collision.shape.size = wind_area_size
+	visual.texture.width = wind_area_size.x
+	visual.texture.height = wind_area_size.y
