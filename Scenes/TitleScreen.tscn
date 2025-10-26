@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmuovyrk6r7wv"]
+[gd_scene load_steps=5 format=3 uid="uid://bmuovyrk6r7wv"]
 
-[ext_resource type="Texture2D" uid="uid://dsyyt22ddvvgx" path="res://icon.svg" id="1_uebgo"]
+[ext_resource type="Texture2D" uid="uid://dw78nxspru3ip" path="res://Assets/UI/leaf_logo.png" id="1_8l4an"]
+[ext_resource type="Texture2D" uid="uid://ds6gt6a10cuym" path="res://Assets/UI/playbutton.png" id="2_8l4an"]
+[ext_resource type="Texture2D" uid="uid://d4e1ghviwfhju" path="res://Assets/UI/leaf title.png" id="2_vmg2h"]
+[ext_resource type="Texture2D" uid="uid://c7h3gdeca8jse" path="res://Assets/UI/quitbutton.png" id="3_n15yj"]
 
 [node name="TitleScreen" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Title" type="Sprite2D" parent="."]
-position = Vector2(0, -190)
-texture = ExtResource("1_uebgo")
+position = Vector2(226, -78)
+texture = ExtResource("1_8l4an")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -20,3 +23,42 @@ offset_top = -324.0
 offset_right = 576.0
 offset_bottom = 324.0
 grow_vertical = 0
+
+[node name="PlayButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -519.0
+offset_top = 166.0
+offset_right = -369.0
+offset_bottom = 266.0
+grow_horizontal = 0
+grow_vertical = 2
+icon = ExtResource("2_8l4an")
+icon_alignment = 1
+expand_icon = true
+
+[node name="QuitButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -269.0
+offset_top = 166.0
+offset_right = -119.0
+offset_bottom = 266.0
+grow_horizontal = 0
+grow_vertical = 2
+icon = ExtResource("3_n15yj")
+icon_alignment = 1
+expand_icon = true
+
+[node name="BG" type="Sprite2D" parent="."]
+z_index = -100
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_vmg2h")
